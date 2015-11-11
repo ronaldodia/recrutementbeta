@@ -1,0 +1,73 @@
+
+
+{%extends  '::base.html.twig'%}
+
+{% block body%}
+    <br><br>
+
+     <div class="content">
+      <!-- Start: SERVICE LIST -->
+        <div class="container">
+          <div class="page-header">
+                            <h2><small><font color="black"><font size=+2><u>Entreprise</u></font></font></small></h2>
+          </div>
+                
+         
+           <div class="row-fluid">
+              
+          <div class="span12" class="icon-align-left">
+              <br> <br>
+              
+              
+              <div class="row">
+            <div class="header-logo" align="center">
+                <font size=+2><img src="{{asset('logos/'~entreprise.logo)}}" width="150" height="60"></font>
+            </div>
+          </div>
+              
+            <div class="row">
+            <div class="page-header">
+                <h1><small> Nom de l'entreprise :</small></h1> <font size=+2>{{entreprise.nomEntreprise}} </font>
+            </div>
+          </div>
+                <div class="row">
+            <div class="page-header">
+                <h1><small> Site internet de l'entreprise :</small></h1> <font size=+2>{{entreprise.siteInternet}} </font>
+            </div>
+          </div>
+                <div class="row">
+            <div class="page-header">
+                <h1><small> Nom Contact et téléphone de l'entreprise :</small></h1> <font size=+2>{{entreprise.nomContact}}<br> Tél.: {{entreprise.telephoneContact}}</font>
+            </div>
+          </div>
+               <div class="row">
+            <div class="page-header">
+                <h1><small> Pays et Vile :</small></h1> <font size=+2>{{entreprise.idVille.nomVille}}, {{entreprise.idVille.idPays.nomPays}}</font>
+            </div>
+          </div>
+         <div class="row">
+            <div class="page-header">
+                <h1><small> Description de l'entreprise:</small></h1> <font size=+2>{{entreprise.descriptionEntreprise|raw}}</font>
+            </div>
+          </div>
+           <div class="row">
+            <div class="page-header">
+                <h1><small> Adresse de l'entreprise:</small></h1> <font size=+2>{{entreprise.adresseEntreprise}}</font>
+            </div>
+          </div>
+               <div class="row">
+            <div class="page-header">
+                <h1><small> Secteur(s) d'activité:</small></h1> <font size=+2><ul>{% for secteur in entreprise.idSecteurActivite %}<li>{{secteur.nomSecteurActivite}}</li>{%endfor%}</ul></font>
+            </div>
+          </div>
+           </div>
+          </div>
+        </div>
+      <!-- End: SERVICE LIST -->
+  
+     {%endblock%} 
+    
+    
+    
+    
+    

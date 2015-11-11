@@ -1,0 +1,68 @@
+
+    
+{%extends  '::base.html.twig'%}
+
+{% block body%}
+    <br><br>
+
+     <div class="content">
+      <!-- Start: SERVICE LIST -->
+        <div class="container">
+          <div class="page-header">
+                            <h2><small><font color="black"><font size=+2><u>Espace Enterprise     </u></font></font></small></h2>
+          </div>
+                
+         <div class="span3">{%if is_granted("ROLE_USER")  %}
+
+              {%if is_granted("ROLE_MANAGER")%}
+                    {%if is_granted("ROLE_ADMIN")%}
+                       {% include('AdminBundle:Modules:menuadmin.html.twig')%}
+
+                    {%else%}
+                      {% include('EntrepriseBundle:Modules:menuentreprise.html.twig')%}
+                    {%endif%}
+
+                 {%else%}
+                       {% include('CandidatBundle:Modules:menucandidat.html.twig')%}
+                        
+                {%endif%}
+
+
+         {%endif%}</div>
+           <div class="row-fluid">
+              
+          <div class="span9" class="left">BINEVENU(E) {{app.user.username|upper}} DANS VOTRE ESPACE!
+              <br> <br>
+            
+          
+           
+   
+         <table class="row-fluid" border="2">
+             <caption class="caption"> Les postulants pour l'annonce : <h1><small>{{ligne.titreOffre|upper}}</small></h1></caption>
+             <tr class="row btn-primary"><td class="col-md-6">Nom et prénom</td><td class="col-md-6"> Email</td><td class="col-md-6">Civilité</td><td class="col-md-6">Téléphone</td><td class="col-md-6" colspan="3">Niveau d'études</td></tr>
+                 
+{%for  l in ligne.idCandidat%} 
+                 
+                  <tr class="row ">
+                      <td class="col-md-6" ><a href="{{path('entreprise_showcv',{'id':l.idCandidat})}}">{{l. nomCandidat}} {{l.prenom}}</a></td>
+              
+                 <td class="col-md-6" >{{l.utilisateur.email}}</td> 
+                 <td class="col-md-6" >{{l.civlite}}</td>
+                 <td class="col-md-6" >{{l.telephone}}</td> 
+                 <td class="col-md-6" >{{l.idNiveauEtudes.niveauEtudes}}</td> 
+                  </tr>
+              {%endfor%}
+              </table>
+          
+          
+          
+          </div>
+           </div></div></div>
+     
+
+     {%endblock%} 
+    
+    
+    
+    
+   

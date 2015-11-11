@@ -1,0 +1,44 @@
+
+
+
+
+
+
+
+
+{%extends  '::base.html.twig'%}
+
+{% block body%}
+    <br><br>
+
+     <div class="content">
+      <!-- Start: SERVICE LIST -->
+        <div class="container">
+         
+          
+           <div class="row-fluid">
+              
+          <div class="span9" class="icon-align-left">
+              <br> <br>
+  
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+<form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class="form-signin-signup">
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'resetting.reset.submit'|trans }}" class="btn btn-primary"/>
+    </div>
+</form>
+
+           </div>
+          </div>
+        </div>
+      <!-- End: SERVICE LIST -->
+  
+     {%endblock%} 
+    
+    
+    
+    
+    

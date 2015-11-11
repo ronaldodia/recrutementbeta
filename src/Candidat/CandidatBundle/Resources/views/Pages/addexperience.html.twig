@@ -1,0 +1,52 @@
+
+{%extends  '::base.html.twig'%}
+
+{% block body%}
+    <br><br>
+
+     <div class="content">
+      <!-- Start: SERVICE LIST -->
+        <div class="container">
+          <div class="page-header">
+                            <h2><small><font color="black"><font size=+2><u>Espace Candidat     </u></font></font></small></h2>
+          </div>
+                
+          <div class="span3">{% include('CandidatBundle:Modules:menucandidat.html.twig')%}</div>
+           <div class="row-fluid">
+              
+          <div class="span9" class="icon-align-left">BINEVENU(E) {{app.user.username|upper}} DANS VOTRE ESPACE!
+              <br> <br>
+              {% for flashMessage in app.session.flashbag.get('notice') %}
+              <div class="form-row"><font color="green">Expérience ajoutée avec succès</font></div>
+{% endfor %}
+                  {% for flashMessage in app.session.flashbag.get('erreur') %}
+              <div class="form-row"><font color="red">Erreur d'ajout de l'expérience, vérifiez que vous avez créé votre état civile</font></div>
+{% endfor %}
+                
+                  <form method="POST" action="{{path('candidat_addexperience')}}" class="form-signin-signup">
+{{form_row(form.titreExperience)}}
+  {{form_row(form.dateDebutExperience)}}    
+        {{form_row(form.dateFinExperience)}}
+        {{form_row(form.fonction)}}
+        {{form_row(form.nombreMois)}}
+        {{form_row(form.competenceUtilisees)}}
+        {{form_row(form.entrepriseExperience)}}
+        {{form_row(form.descriptionExperience)}}
+        {{form_row(form.lieuExperience)}}
+        {{form_widget(form.candidatNE)}}
+        
+         {{form_rest(form)}}
+                      <button type="submit"  class="btn-primary btn">ajouter</button>
+    </form>
+
+           </div>
+          </div>
+        </div>
+  
+  
+     {%endblock%} 
+    
+    
+    
+    
+    

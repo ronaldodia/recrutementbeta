@@ -1,0 +1,71 @@
+{%extends  '::base.html.twig'%}
+
+{% block body%}
+    <br><br>
+
+     <div class="content">
+      <!-- Start: SERVICE LIST -->
+        <div class="container">
+          <div class="page-header">
+               <div class="slider">
+        <div class="container-fluid">
+     
+      </div>
+                   
+              
+              <div align="center"><h2>Liste des offres</h2></div>  
+             {% for flashMessage in app.session.flashbag.get('msgpostule') %}
+              <div class="form-row"><font color="green">Offre postulée, vous pourrez retrouver les offres postulées  <a href="{{ path('candidat_offrepostulees') }}" target="_blank" class="email" > dans votre espace</a></font></div>
+{% endfor %}
+                  {% for flashMessage in app.session.flashbag.get('msgnonpostule') %}
+              <div class="form-row"><font color="red">Vous avez déjà postulé à cette offre</font></div>
+{% endfor %}
+          </div>
+          <div class="row-fluid">
+            <ul class="thumbnails">
+            <div class="span12">
+             {% for flashMessage in app.session.flashbag.get('msgoffre') %}
+              <div class="form-row"><font color="green">Pas d'offre pour ce type d'offres</font></div>
+{% endfor %}
+                    <br>
+                   {%for offre in offres %} 
+                    <li >
+                        <table class="span3"><tr><td>
+                                    <img src="{{asset('logos/'~offre.idEntreprise.logo)}}" height="65" width="80"> <font color="blue"><font size="+2"><a href="{{path('annonce_showcompany',{'id':offre.idEntreprise.idEntreprise})}}">{{offre.idEntreprise.nomEntreprise}}</a></font></font></h>
+                  <div class="caption">
+                      {% for ligne in offre.ligneOffre%}
+                   <u> {{ligne.titreOffre}}</u>
+                    <p>
+                        <i>{{ligne.descriptionProfileRecherche|slice(0, 14)|raw }} ...</i>
+                     </p>
+                            <span ><a href="{{ path('candidat_postuler', {'id': ligne.idOffreLigneOffre, 'offreid': ligne.lidOffre.lidOffre}) }}" class="btn btn-primary">Postuler</a>
+                                <a href="{{ path('annonce_detailsoffre', {'id': ligne.idOffreLigneOffre})~'.html' }}" target="_blank" > Voir les détails</a></span>
+                    
+                     <br> <b>Date limite: {{ligne.dateLimiteOffre|date("d-m-Y  H:m:s")}}</b>
+                               <hr>
+                   {%endfor%}</td></tr></table>
+                    </li>
+                   {%endfor%}
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+            </ul>
+         
+          <div class="pagination pagination-centered">
+          
+    {{ knp_pagination_render(offres) }}
+</div>
+      <!-- End: SERVICE LIST -->
+    </div>
+     {%endblock%} 
+    
+    
+    
+    
+    

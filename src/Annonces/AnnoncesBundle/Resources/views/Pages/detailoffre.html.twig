@@ -1,0 +1,52 @@
+{%extends  '::base.html.twig'%}
+
+{% block body%}
+ 
+<br><br>
+<div class="content">    
+      <div class="container">
+        <!-- Start: Product description -->
+        <article class="article">
+          <div class="row bottom-space">
+            <div class="span12">
+              <div class="page-header">
+                  <center> <h1><small> Nom de  l'entreprise </small><font size=+3>{{ligne.lidOffre.idEntreprise.nomEntreprise}}</font></h1></center>
+              </div>
+            </div>
+            <div class="span12 center-align"></div>
+          </div>
+          <div class="row">
+            <div class="page-header">
+                <h1><small> Titre de l'offre </small></h1> <font size=+2>{{ligne.titreOffre}}</font>
+            </div>
+          </div>
+        </article>
+        <!-- End: Product description -->
+        <div class="page-header">
+            <h1><small>Metiers: </small></h1>{% for metier in ligne.idMetier %} <ul ><li> <font size=+2>{{metier.titreMetier}}</font></li></ul> {%endfor%}
+        </div>
+        <div class="page-header">
+          <h1><small> Description du poste:</small></h1><font size=+2>{{ligne.descriptionPoste|raw}}</font>
+        </div>
+        <div class="page-header">
+          <h1><small> Description du profile recherché: </small></h1><font size=+2>{{ligne.descriptionProfileRecherche|raw}}</font>
+        </div>
+        <div class="page-header">
+          <h1><small> Exigences: </small>{{ligne.exigences|raw}}</h1>
+        </div>
+        <div class="page-header">
+          <h1><small> Pièces à déposer: </small></h1><font size=+2>{{ligne.piecesADeposer|raw}}</font>
+        </div>
+        <div class="page-header">
+            <h1><small> Date limite: </small> :<font size=+2>{{ligne.dateLimiteOffre|date("d/m/Y \\à H:i")}}</font></h1>
+        </div>
+        <div class="page-header">
+            <h1><small> Date de publication: </small> <font size=+2>{{ligne.dateAjoutOffre|date("d/m/Y \\à H:i")}}</font></h1>
+        </div>
+         <span ><a href="{{ path('candidat_postuler', {'id': ligne.idOffreLigneOffre}) }}" class="btn btn-primary">Postuler</a>
+                           
+      </div>
+    </div>
+    </div>
+   
+    {%endblock%} 

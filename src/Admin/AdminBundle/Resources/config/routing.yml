@@ -1,0 +1,120 @@
+admin_homepage:
+    pattern:  /
+    defaults: { _controller: AdminBundle:Default:index }
+admin_creationville:
+    pattern:  /creerville
+    defaults: { _controller: AdminBundle:Donnees:addville }
+admin_adduser:
+    pattern:  /adduser
+    defaults: { _controller: AdminBundle:Utilisateurs:addusers }
+    
+admin_addentreprise:
+    pattern:  /addcompany
+    defaults: { _controller: AdminBundle:Admin:addcompany }
+    
+admin_adddomainecompetence:
+    pattern:  /adddomainecompetence
+    defaults: { _controller: AdminBundle:Donnees:adddomainecompetence } 
+
+admin_addmetier:
+    pattern:  /addmetier
+    defaults: { _controller: AdminBundle:Donnees:addmetier }
+    
+admin_addsecteur:
+    pattern:  /addsecteur
+    defaults: { _controller: AdminBundle:Donnees:addsecteur }
+admin_addoffre:
+    pattern:  /addoffre
+    defaults: { _controller: AdminBundle:Admin:addoffre }
+
+admin_showville:
+    pattern:  /showville
+    defaults: { _controller: AdminBundle:Donnees:showville }
+    
+admin_showoffres:
+    pattern:  /showoffres/
+    defaults: { _controller: AdminBundle:Admin:showoffres }
+ 
+admin_showdomainecompetence:
+    pattern:  /showdomainecompetence
+    defaults: { _controller: AdminBundle:Donnees:showdomainecompetence }
+    
+admin_showutilisateur:
+    pattern:  /showutilisateur/
+    defaults: { _controller: AdminBundle:Utilisateurs:showutilisateurs}
+    
+admin_showsecteur:
+    pattern:  /showsecteur
+    defaults: { _controller: AdminBundle:Donnees:showsecteur }
+
+admin_showentreprise:
+    pattern:  /showentreprise
+    defaults: { _controller: AdminBundle:Admin:showcompanies }
+
+admin_showoffreexpire:
+    pattern:  /showeoffreexpire
+    defaults: { _controller: AdminBundle:Admin:showoffresexpire }
+    
+admin_showcompany:
+    pattern:  /showcompany/{id}
+    defaults: { _controller: AdminBundle:Admin:showcompany } 
+    requirements:
+        id:  \d+
+    
+admin_editcompany:
+    pattern:  /editcompany/{id}
+    defaults: { _controller: AdminBundle:Admin:editcompany } 
+    requirements:
+        id:  \d+
+admin_editoffre:
+    pattern:  /editoffre/{idoffre}/
+    defaults: { _controller: AdminBundle:Admin:editoffre}   
+    requirements:
+        idoffre:  \d+
+    
+admin_activeoffre:
+    pattern:  /activeoffre/{idoffre}/
+    defaults: { _controller: AdminBundle:Admin:activeroffre}   
+    requirements:
+        idoffre:  \d+
+    
+    
+admin_showmetier:
+    pattern:  /showmetier
+    defaults: { _controller: AdminBundle:Donnees:showmetier }
+    
+admin_editsecteur:
+    pattern:  /editsecteur/{id}
+    defaults: { _controller: AdminBundle:Donnees:editsecteur }
+    requirements:
+        id:  \d+
+admin_editmetier:
+    pattern:  /editmetier/{id}
+    defaults: { _controller: AdminBundle:Donnees:editmetier }
+    requirements:
+        id:  \d+
+        
+admin_editville:
+    pattern:  /editville/{id}
+    defaults: { _controller: AdminBundle:Donnees:editville }
+    requirements:
+        id:  \d+
+    
+admin_editdomainecompetence:
+    pattern:  /editdomainecompetence/{id}
+    defaults: { _controller: AdminBundle:Donnees:editdomainecompetence }
+    requirements:
+        id:  \d+
+    
+admin_removeville:
+    pattern:  /removeville/{id}
+    defaults: { _controller: AdminBundle:Donnees:removeville }
+    requirements:
+        id:  \d+
+
+admin_editutilisateur:
+    pattern:  /editutilisateur/{id}
+    defaults: { _controller: AdminBundle:Utilisateurs:editutilisateur }
+    requirements:
+        id:  \d+
+

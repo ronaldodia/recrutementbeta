@@ -1,0 +1,41 @@
+
+
+{%extends  '::base.html.twig'%}
+
+{% block body%}
+    <br><br>
+
+     <div class="content">
+      <!-- Start: SERVICE LIST -->
+        <div class="container">
+          <div class="page-header">
+                            <h2><small><font color="black"><font size=+2><u>Espace Entreprise</u></font></font></small></h2>
+          </div>
+                
+          <div class="span3">{% include('EntrepriseBundle:Modules:menuentreprise.html.twig')%}</div>
+           <div class="row-fluid">
+              
+          <div class="span9" class="icon-align-left">BINEVENU(E) DANS VOTRE ESPACE ENTREPRISE {{app.user.username|upper}} !
+              <br> <br>
+             {% for flashMessage in app.session.flashbag.get('succes') %}
+              <div class="form-row"><font color="green">Informations modifiées</font></div>
+{% endfor %}
+                  {% for flashMessage in app.session.flashbag.get('erreur') %}
+              <div class="form-row"><font color="red">Erreur de modification</font></div>
+{% endfor %}
+           
+                     <form method="POST" action="{{path('entreprise_editerinformation')}}" class="form-signin-signup" {{ form_enctype(addcompanyform)}}>
+{{ form_widget(addcompanyform) }} 
+                             <button type="submit" class="btn btn-primary   ">Modifier</button>
+    </form>
+           </div>
+          </div>
+            </div></div>
+      <!-- End: SERVICE LIST -->
+  
+     {%endblock%} 
+    
+    
+    
+    
+    

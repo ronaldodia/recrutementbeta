@@ -1,0 +1,35 @@
+{%extends  '::base.html.twig'%}
+{% block body%}
+<br></br><br></br>
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+
+<div class="content">
+    <div class="container">
+        <div class="page-header">
+            <h1>Creation de compteer sur BETA.MR</h1>
+        </div>
+            
+
+        <div class="row">
+            <div class="span6 offset3">
+                <h4 class="widget-header"><i class="icon-lock"></i>Inscription  </h4>
+              
+ <div class="widget-body">
+                    <div class="center-align">
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST"class="form-horizontal form-signin-signup" >
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'registration.submit'|trans }}" class="btn btn-primary btn-large"/>
+    </div>
+</form>
+                  
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock  %}

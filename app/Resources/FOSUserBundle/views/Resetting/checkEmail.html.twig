@@ -1,0 +1,10 @@
+{% extends "::base.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block body %}
+<br><br><br><br><br><br>
+<p>
+<font color="green"><font size=+2>{{ 'resetting.check_email'|trans({'%email%': email}) }}</font></font>
+</p><br><br><br><br><br><br>
+{% endblock %}

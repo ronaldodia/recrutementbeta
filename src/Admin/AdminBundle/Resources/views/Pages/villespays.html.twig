@@ -1,0 +1,55 @@
+
+    
+{%extends  '::base.html.twig'%}
+
+{% block body%}
+    <br><br>
+
+     <div class="content">
+      <!-- Start: SERVICE LIST -->
+        <div class="container">
+          <div class="page-header">
+                            <h2><small><font color="black"><font size=+2><u>Espace Admin     </u></font></font></small></h2>
+          </div>
+                
+          <div class="span3">{% include('AdminBundle:Modules:menuadmin.html.twig')%}</div>
+           <div class="row-fluid">
+              
+          <div class="span9" class="left">BINEVENU(E) {{app.user.username|upper}} DANS VOTRE ESPACE!
+              <br> <br>
+                     {% for flashMessage in app.session.flashbag.get('successremove') %}
+              <div class="form-row"><font color="green">Ville supprimée</font></div>
+{% endfor %}
+                  {% for flashMessage in app.session.flashbag.get('errorremove') %}
+              <div class="form-row"><font color="red">Erreur suppression! </font></div>
+{% endfor %}
+          
+           
+    <div class="btn btn-navbar"><a href="{{path('admin_creationville')}}" >Ajouter une ville</a></div><br>
+    <br>
+         <table class="row-fluid" border="2">
+             <tr class="row btn-primary"><td class="col-md-6">Villes </td><td>Pays</td><td>Actions</td></tr>
+                  
+{%for o in villes%}
+                  <td colspan="4"><hr class="btn-primary"></td>
+                  <tr class="row">
+                      <td class="col-md-6" >{{o.nomVille}}</td>
+                        <td class="col-md-6">{{o.idPays.nomPays}}</td> </td>
+                        <td class="col-md-6"><div align="center"><a href="{{path('admin_editville',{'id':o.idVille})}}"> <span class="btn">Modifier</span></a>  <a href="{{path('admin_removeville',{'id':o.idVille})}}"> <span class="btn">Supprimer</span></a></div></td>
+            
+                  </tr>
+              {%endfor%}
+              </table>
+          
+          
+          
+          </div>
+           </div></div></div>
+     
+
+     {%endblock%} 
+    
+    
+    
+    
+   

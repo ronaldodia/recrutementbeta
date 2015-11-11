@@ -1,0 +1,41 @@
+entreprise_homepage:
+    pattern:  /
+    defaults: { _controller: EntrepriseBundle:Default:index }
+entreprise_informations:
+    pattern:  /informations
+    defaults: { _controller: EntrepriseBundle:Information:index }
+
+entreprise_editerinformation:
+    pattern:  /editerinformations
+    defaults: { _controller: EntrepriseBundle:Information:editinformation }
+    
+entreprise_addoffre:
+    pattern:  /addoffre
+    defaults: { _controller: EntrepriseBundle:Offres:index }
+    
+    
+entreprise_showoffres:
+    pattern:  /showoffres
+    defaults: { _controller: EntrepriseBundle:Offres:mesannonces }
+    
+entreprise_showallcvs:
+    pattern:  /showallcvs
+    defaults: { _controller: EntrepriseBundle:Offres:showallcvs }
+
+entreprise_postulants:
+    pattern:  /showpostulants/{id}
+    defaults: { _controller: EntrepriseBundle:Offres:postulants }
+    requirements:
+        id:  \d+
+ 
+entreprise_showcv:
+    pattern:  /showcv/{id}
+    defaults: { _controller: EntrepriseBundle:Offres:showcv }
+    requirements:
+        id:  \d+
+
+entreprise_editoffre:
+    pattern:  /editoffre/{idoffre}/
+    defaults: { _controller: EntrepriseBundle:Offres:editoffre }
+    requirements:
+        idoffre:  \d+

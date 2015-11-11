@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Beta Conseil!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+         <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beta | Première entreprise de recrutement en Mauritanie">
+    <meta name="author" content="Alassane Dia">
+    <title>Beta</title>
+    <!-- Bootstrap -->
+    <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.css')}}" rel="stylesheet">
+    <!-- Bootstrap responsive -->
+    <link href="{{ asset('css/bootstrap-responsive.min.css')}}" rel="stylesheet">
+    <!-- Font awesome - iconic font with IE7 support --> 
+    <link href="{{ asset('css/font-awesome.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/font-awesome-ie7.css')}}" rel="stylesheet">
+    <!-- Bootbusiness theme -->
+    <link href="{{ asset('css/boot-business.css')}}" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css')}}">
+
+    </head>
+    <body>
+        
+       <header>
+      <!-- Start: Navigation wrapper -->
+      <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a href="{{path('annonce_homepage')}}" class="brand brand-bootbus"><img src="{{ asset('img/beta2.jpg')}}" height="80" width="80"> </a>
+            <!-- Below button used for responsive navigation -->
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!-- Start: Primary navigation -->
+            <div class="nav-collapse collapse">        
+              <ul class="nav pull-right">
+                 <li><a href="{{path('annonce_homepage')}}">Accueil</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle active-link" data-toggle="dropdown">Espance<b class="caret"></b></a>
+                  <ul class="dropdown-menu">
+                    <li class="nav-header">Candidat</li>
+                 
+                    <li><a href="{{path('candidat_homepage')}}">Candidat</a></li>    
+                    <li class="nav-header">Recrtueurs</li>
+                 
+                    <li><a href="{{path('entreprise_homepage')}}">Entreprise</a></li>                     
+                    
+                  </ul>                  
+             
+                {% if  app.user%}
+                <li><a href="{{path('fos_user_security_logout')}}">Déconnexion </a></li> 
+                
+{% else%}
+                <li><a href="{{path('fos_user_security_login')}}">Connexion</a></li>
+                <li><a href="{{path('fos_user_registration_register')}}">Inscription </a></li>
+               
+                {%endif%}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End: Navigation wrapper -->   
+    </header>
+<p></p><br><br><br><br>
+
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}{% endblock %}
+                <p></p>
+            {% include '::footer.html.twig'%}
+        </body>
+        <script type="text/javascript" src="{{ asset('js/jquery.min.js')}}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/admin/ckeditor/ckeditor.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/bootstrap.min.js')}}"></script>
+    <script type="text/javascript" src="{{ asset('js/boot-business.js')}}"></script>
+
+    
+</html>

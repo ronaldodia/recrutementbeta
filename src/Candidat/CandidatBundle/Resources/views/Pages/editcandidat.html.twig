@@ -1,0 +1,45 @@
+
+
+
+
+
+{%extends  '::base.html.twig'%}
+
+{% block body%}
+    <br><br>
+
+     <div class="content">
+      <!-- Start: SERVICE LIST -->
+        <div class="container">
+          <div class="page-header">
+                            <h2><small><font color="black"><font size=+2><u>Espace Candidat</u></font></font></small></h2>
+          </div>
+                
+          <div class="span3">{% include('CandidatBundle:Modules:menucandidat.html.twig')%}</div>
+           <div class="row-fluid">
+              
+          <div class="span9" class="icon-align-left">BINEVENU(E) {{app.user.username|upper}} DANS VOTRE ESPACE!
+              <br> <br>
+              {% for flashMessage in app.session.flashbag.get('notice') %}
+              <div class="form-row"><font color="green">Etat civile modifié </font></div>
+{% endfor %}
+                  {% for flashMessage in app.session.flashbag.get('erreur') %}
+              <div class="form-row"><font color="red">Erreur mise à jour</font></div>
+{% endfor %}
+                  <form method="POST" action="{{path('candidat_edit')}}" class="form-contact-us" {{ form_enctype(editcandidatform)}}>
+{{form_widget(editcandidatform)}}
+                          {{form_rest(editcandidatform)}}
+                      <button type="submit"  class="btn-primary btn">modifier</button>
+    </form>
+
+           </div>
+          </div>
+        </div>
+   
+  
+     {%endblock%} 
+    
+    
+    
+    
+    

@@ -1,0 +1,26 @@
+annonce_homepage:
+    pattern:  /filtre/{typeoffre}
+    defaults: { _controller: AnnonceBundle:Default:index,typeoffre:tout }
+    requirements:
+        typeoffre: "[^/]+"
+        
+annonce_showcompany:
+    pattern:  /showcompany/{id}
+    defaults: { _controller: AnnonceBundle:Default:showcompany } 
+    requirements:
+        id:  \d+        
+
+annonce_403:
+    pattern:  /pasledroit403
+    defaults: { _controller: AnnonceBundle:Default:pasdroit }
+   
+annonce_detailsoffre:
+    pattern:  /offre/{id}.{_format}
+    defaults: { _controller: "AnnonceBundle:Detailsoffre:index", _format:html}
+    requirements:
+        _format:  html
+        id:  \d+
+        
+annonce_index:
+    pattern:  /
+    defaults: { _controller: AnnonceBundle:Default:index}

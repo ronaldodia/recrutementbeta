@@ -1,0 +1,70 @@
+
+
+{%extends  '::base.html.twig'%}
+
+{% block body%}
+    <br><br>
+
+     <div class="content">
+      <!-- Start: SERVICE LIST -->
+        <div class="container">
+          <div class="page-header">
+                            <h2><small><font color="black"><font size=+2><u>Espace Candidat</u></font></font></small></h2>
+          </div>
+                
+          <div class="span3">{% include('CandidatBundle:Modules:menucandidat.html.twig')%}</div>
+           <div class="row-fluid">
+              
+          <div class="span9" class="icon-align-left">BINEVENU(E) {{app.user.username|upper}} DANS VOTRE ESPACE!
+              <br> <br>
+               <div class="btn btn-navbar"><a href="{{path('candidat_edit')}}" >Modifier les informations</a></div>
+             
+              
+              <div class="row">
+            <div class="header-logo" align="center">
+                <font size=+2><img src="{{asset('upload/'~candidat.photo)}}" width="150" height="60"> </font>
+            </div>
+          </div>
+              
+            <div class="row">
+            <div class="page-header">
+                <h1><small> Nom & Prenom: </small></h1> <font size=+2>{{candidat.nomCandidat}} {{candidat.prenom}}</font>
+            </div>
+          </div>
+          <div class="row">
+            <div class="page-header">
+                <h1><small> Adresse : </small></h1> <font size=+2>{{candidat.adresse}}</font>
+            </div>
+          </div>
+            <div class="row">
+            <div class="page-header">
+                <h1><small> Civilité : </small></h1> <font size=+2>{{candidat.civlite}}</font>
+            </div>
+          </div>
+            <div class="row">
+            <div class="page-header">
+                <h1><small> Situation familliale : </small></h1> <font size=+2>{{candidat.situationFamliliale}}</font>
+            </div>
+          </div>
+           <div class="row">
+            <div class="page-header">
+                <h1><small> site / blog / réseau social : </small></h1> <font size=+2>{{candidat.site}}</font>
+            </div>
+          </div>
+          <div class="row">
+            <div class="page-header">
+                <h1><small> Téléphone : </small></h1> <font size=+2>{{candidat.telephone}}</font>
+            </div>
+          </div>
+          
+           </div>
+          </div>
+        </div>
+      <!-- End: SERVICE LIST -->
+  
+     {%endblock%} 
+    
+    
+    
+    
+    

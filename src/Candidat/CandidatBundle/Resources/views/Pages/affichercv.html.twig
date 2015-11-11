@@ -1,0 +1,163 @@
+
+{%extends  '::base.html.twig'%}
+ {% block stylesheets %}
+<style>
+         * { margin: 0; padding: 0; }
+        body { font: 16px Helvetica, Sans-Serif; line-height: 24px; background: url(images/noise.jpg); }
+        .clear { clear: both; }
+        #page-wrap { width: 800px; margin: 40px auto 60px; }
+        #pic { float: right; margin: -30px 0 0 0; }
+        h1 { margin: 0 0 16px 0; padding: 0 0 16px 0; font-size: 42px; font-weight: bold; letter-spacing: -2px; border-bottom: 1px solid #999; }
+        h2 { font-size: 20px; margin: 0 0 6px 0; position: relative; }
+        h2 span { position: absolute; bottom: 0; right: 0; font-style: italic; font-family: Georgia, Serif; font-size: 16px; color: #999; font-weight: normal; }
+        p { margin: 0 0 16px 0; }
+        a { color: #999; text-decoration: none; border-bottom: 1px dotted #999; }
+        a:hover { border-bottom-style: solid; color: black; }
+        ul { margin: 0 0 32px 17px; }
+        #objective { width: 500px; float: left; }
+        #objective p { font-family: Georgia, Serif; font-style: italic; color: #666; }
+        dt { font-style: italic; font-weight: bold; font-size: 18px; text-align: right; padding: 0 26px 0 0; width: 150px; float: left; height: 100px; border-right: 1px solid #999;  }
+        dd { width: 600px; float: right; }
+        dd.clear { float: none; margin: 0; height: 15px; }</style>
+    {% endblock %}
+{% block body%}
+    <br><br>
+
+     <div class="content">
+      <!-- Start: SERVICE LIST -->
+        <div class="container">
+          <div class="page-header">
+                            <h2><small><font color="black"><font size=+2><u>Espace Candidat     </u></font></font></small></h2>
+          </div>
+                
+          <div class="span3">{% include('CandidatBundle:Modules:menucandidat.html.twig')%}</div>
+           <div class="row-fluid">
+              
+          <div class="span9" class="left">BINEVENU(E) {{app.user.username|upper}} DANS VOTRE ESPACE!
+              <br> <br>
+            
+          
+          
+          
+          
+          
+          
+          
+          
+          
+           <div id="page-wrap">
+    
+        
+        
+               <img src="{{asset('upload/'~candidat.photo)}}" class="icon-align-left" align="right" width="150" height="60"> 
+    
+        <div id="contact-info" class="vcard">
+        
+            <!-- Microformats! -->
+        
+            
+        
+            <p> <h1><small>{{candidat.nomCandidat}} {{candidat.prenom}}</small></h1>
+            <br>
+                Téléphone: <span class="tel">{{candidat.telephone}}</span><br />
+                <br>
+                Email: <a class="email" href="mailto:{{app.user.email}}">{{app.user.email}}</a>
+                <br><br>
+                 <h1><small> Adresse : </small></h1> <font size=+2>{{candidat.adresse}}, {{candidat.idVille.nomVille}}, {{candidat.idVille.idPays.nomPays}}</font>
+            </p>
+        </div>
+                
+        
+        
+        <div class="clear"></div>
+        
+        <dl>
+            <dd class="clear"></dd>
+            
+            <dt><font size=+2><u>Formations :</u></font></dt>
+            <hr>
+              {% if formation is not null %}
+     
+     {% for l in formation%}
+            <dd>
+                <ul><li>{{l.dateDebutFormation|date("d/m/Y")}} -  {{l.dateFinFormation|date("d/m/Y")}} : {{l.diplome}} en {{l.nomFormation|upper}}<br>
+                        {{l.etablissementFormation}}, {{l.lieuFormation}}<br>{{l.descriptionFormation}}</li></ul>
+            </dd>
+            
+            {%endfor%}
+        
+      {%endif%}
+            
+            
+                      <dd class="clear"></dd>
+            
+                      <dt><font size=+2><u>Compétences</u></font></dt>
+                      <hr>
+            {% if competence is not null %}
+     
+     {% for l in competence%}
+            <dd>
+                <ul><li>{{l.idDomaineCompetence.nomDomaineCompetence}}<br>
+                {{l.nomCompetence|upper}}</li></ul>
+               
+            </dd>
+               {%endfor%}
+      {%endif%}
+        <dd class="clear"></dd>
+            
+        <dt><font size=+2><u>Expériences</u></font></dt>
+        <hr>
+            {% if experience is not null %}
+     
+     {% for l in experience%}
+            <dd>
+                <h2>{{l.idExperience.dateDebutExperience|date("d/m/Y")}} - {{l.idExperience.dateFinExperience|date("d/m/Y")}} ({{l.idExperience.nombreMois}} mois): <font size=+1>{{l.idExperience.titreExperience|upper}}</font>, {{l.idExperience.entrepriseExperience}}, {{l.idExperience.lieuExperience}} </h2>
+                <ul>
+                    <li>Expérience {{l.idNiveauExperience.niveauExperience}}</li>
+                    <li>Compétences utilisées: {{l.idExperience.competenceUtilisees}} </li>
+                    <li>{{l.idExperience.fonction}} - {{l.idExperience.descriptionExperience}}</li>
+                </ul>
+                
+                
+            </dd>
+             {%endfor%}
+        
+      {%endif%}  
+            
+             <dd class="clear"></dd>
+            <dt><font size=+2><u>Langues</u></font></dt>
+            <hr>
+           {% if langue is not null %}
+     
+     {% for l in langue%}
+            <dd>
+                 <ul>
+                    <li>{{l.idLangue.langue}} ({{l.idNiveauLangue.niveau}})</li>
+                    
+                    
+                </ul>
+                
+               
+            </dd>
+             {%endfor%}
+        
+      {%endif%}       
+            
+            
+            
+        
+        </dl>
+        
+        <div class="clear"></div>
+    
+    </div>
+          </div>
+        </div>
+     
+
+     {%endblock%} 
+    
+    
+    
+    
+    

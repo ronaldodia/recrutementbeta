@@ -1,0 +1,87 @@
+candidat_homepage:
+    pattern:  /
+    defaults: { _controller: CandidatBundle:Candidat:index }
+candidat_add:
+    pattern:  /addcandidat/
+    defaults: { _controller: CandidatBundle:Candidat:addcandidat }
+candidat_edit:
+    pattern:  /editcandidat/
+    defaults: { _controller: CandidatBundle:Candidat:editcandidat }
+candidat_etatcivile:
+    pattern:  /etatcivile/
+    defaults: { _controller: CandidatBundle:Candidat:etatcivile }
+candidat_addlangue:
+    pattern:  /addlangue/
+    defaults: { _controller: CandidatBundle:Langue:addlangue }
+candidat_editlangue:
+    pattern:  /editlangue/{id}
+    defaults: { _controller: CandidatBundle:Langue:editlangue }
+    requirements:
+        id:  \d+
+candidat_deletelangue:
+    pattern:  /deletelangue/{id}
+    defaults: { _controller: CandidatBundle:Langue:deletelangue }
+    requirements:
+        id:  \d+
+candidat_addexperience:
+    pattern:  /addexperience/
+    defaults: { _controller: CandidatBundle:Experience:addexperience }
+candidat_editexperience:
+    pattern:  /editexperience/{id}
+    defaults: { _controller: CandidatBundle:Experience:editexperience }
+    requirements:
+        id:  \d+
+candidat_deleteexperience:
+    pattern:  /deleteexperience/{id}
+    defaults: { _controller: CandidatBundle:Experience:deleteexperience }
+    requirements:
+        id:  \d+
+candidat_afficherexperience:
+    pattern:  /afficherexperience/
+    defaults: { _controller: CandidatBundle:Experience:showexperience }
+candidat_addcompetence:
+    pattern:  /addcompetence/
+    defaults: { _controller: CandidatBundle:Competence:addcompetence }
+candidat_editcompetence:
+    pattern:  /editcompetence/{id}
+    defaults: { _controller: CandidatBundle:Competence:editcompetence }
+    requirements:
+        id:  \d+
+candidat_deletecompetence:
+    pattern:  /deletecompetence/{id}
+    defaults: { _controller: CandidatBundle:Competence:deletecompetence }
+    requirements:
+        id:  \d+
+candidat_affichercompetence:
+    pattern:  /affichercompetence/
+    defaults: { _controller: CandidatBundle:Competence:showcompetence }
+candidat_addformation:
+    pattern:  /addformation/
+    defaults: { _controller: CandidatBundle:Formation:addformation }
+candidat_showformation:
+    pattern:  /afficherformation/
+    defaults: { _controller: CandidatBundle:Formation:showformation }
+candidat_editformation:
+    pattern:  /editerformation/{id}
+    defaults: { _controller: CandidatBundle:Formation:editformation }
+    requirements:
+        id:  \d+
+
+candidat_deleteformation:
+    pattern:  /deleteformation/{id}
+    defaults: { _controller: CandidatBundle:Formation:deleteformation }
+    requirements:
+        id:  \d+
+candidat_showcv:
+    pattern:  /affichercv/
+    defaults: { _controller: CandidatBundle:Cv:showcv }
+    
+candidat_postuler:
+    pattern:  /postuler/{id}
+    defaults: { _controller: CandidatBundle:Postuler:postuler }
+    requirements:
+        id:  \d+
+
+candidat_offrepostulees:
+    pattern:  /offrespostulees
+    defaults: { _controller: CandidatBundle:Postuler:offrepostulees }

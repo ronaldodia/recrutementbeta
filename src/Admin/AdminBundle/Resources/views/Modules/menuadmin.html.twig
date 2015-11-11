@@ -1,0 +1,22 @@
+<nav>
+  <ul class="nav nav-pills nav-stacked ">
+    <li class="nav-header">Profile</li>
+    <li><a href="{{path('fos_user_profile_show')}}">Afficher / Modifier</a></li>
+    <li><a href="{{path('fos_user_change_password')}}">Modifier le mot de passe</a></li>
+  <li class="nav-header">Données des formulaires</li>
+   <li><a href="{{path('admin_showville')}}">Villes</a></li>
+    <li><a href="{{path('admin_showdomainecompetence')}}">Dommaines de compétences</a></li>
+   <li><a href="{{path('admin_showsecteur')}}">Secteur d'activité</a></li>
+   <li><a href="{{path('admin_showmetier')}}">Metiers</a></li>
+   <li class="nav-header">Utilisateurs</li>
+   <li><a href="{{path('admin_showutilisateur')}}">Gérer les utilisateurs</a></li>
+   
+   <li class="nav-header">Annonces</li>
+   <li><a href="{{path('admin_showoffres')}}">Gérer les annonces</a></li>
+      <li><a href="{{path('entreprise_showallcvs')}}">Les CV</a></li>
+         <li class="nav-header">Entreprises</li>
+   <li><a href="{{path('admin_showentreprise')}}">Gérer les entreprises</a></li>
+    
+      
+  </ul>
+</nav>

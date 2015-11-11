@@ -1,0 +1,7 @@
+parameters:
+#    candidat.example.class: Candidat\CandidatBundle\Example
+
+services:
+#    candidat.example:
+#        class: %candidat.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

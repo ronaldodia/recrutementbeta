@@ -1,0 +1,40 @@
+
+{%extends  '::base.html.twig'%}
+
+{% block body%}
+    <br><br>
+
+     <div class="content">
+      <!-- Start: SERVICE LIST -->
+        <div class="container">
+         
+          
+           <div class="row-fluid">
+              
+          <div class="span9" class="icon-align-left">
+              <br> <br>
+  
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+<p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+<a href="{{path('annonce_homepage')}}" class="btn btn-primary">ALLEZ A ACCUEIL</a> Ou à <a href="{{path('utilisateur_redirection')}}" class="btn btn-primary">Votre Espace</a>
+
+
+    {% if app.session is not empty %}
+        {% set targetUrl = app.session.get('_security.' ~ app.security.token.providerKey ~ '.target_path') %}
+        {% if targetUrl is not empty %}<p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>{% endif %}
+    {% endif %}
+    
+
+           </div>
+          </div>
+        </div>
+      <!-- End: SERVICE LIST -->
+  
+     {%endblock%} 
+    
+    
+    
+    
+    
